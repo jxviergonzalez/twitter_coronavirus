@@ -53,5 +53,5 @@ plt.ylabel('Frequency')
 ax.set_title('Frequency of #coronavirus use by language in 2020')
 plt.xticks(range(len(cat)), cat)
 plt.tight_layout()
-covidfreqlang2020_png = 'covidfreqlang2020.png'
+covidfreqlang2020_png = 'covid_lang2020.png'
 plt.savefig(covidfreqlang2020_png, dpi=150)
