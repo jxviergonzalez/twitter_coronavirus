@@ -39,7 +39,7 @@ for key in args.keys:
     ax.plot(x_axis, y_axis, label = key)
 
 ax.set_title("Number of Tweets using " + str(args.keys)+ " in 2020", wrap = True)
-ax.set_ylabel("Number of tweets with Hashtag")
-ax.set_xlabel("Days in  2020")
+ax.set_ylabel("Number of Tweets Using Hashtag")
+ax.set_xlabel("Days passed in 2020")
 plt.legend()
 plt.savefig('hashtag_comparison_' + '_'.join(args.keys) + '.png')
