@@ -50,7 +50,7 @@ fig, ax = plt.subplots()
 plt.bar(range(len(cat)),val, align='center')
 plt.xlabel('Language')
 plt.ylabel('Frequency')
-ax.set_title('Frequency of the #coronavirus Usage by Language in 2020')
+ax.set_title('Frequency of #coronavirus use by language in 2020')
 plt.xticks(range(len(cat)), cat)
 plt.tight_layout()
 covidfreqlang2020_png = 'covidfreqlang2020.png'
