@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-import matplotlib
-matplotlib.use('Agg')
 
 # command line args
 import argparse
@@ -14,18 +12,15 @@ args = parser.parse_args()
 import os
 import json
 from collections import Counter,defaultdict
-from operator import add
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import pandas as pd
 
 # open the input path
 with open(args.input_path) as f:
     counts = json.load(f)
 
 # normalize the counts by the total values
-print("args.percent=", args.percent)
 if args.percent:
     for k in counts[args.key]:
         counts[args.key][k] /= counts['_all'][k]
@@ -35,23 +30,24 @@ items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), rev
 for k,v in items:
     print(k,':',v)
 
-# making bar chart
-sorteditems = sorted(items, key=lambda x: x[1])
-cat = [cat for cat,val in sorteditems][-10:]
-val = [val for cat,val in sorteditems][-10:]
-val,cat = zip(*sorted(zip(val,cat)))
-cat = list(cat)
+#plot
+topten = items[:10]
+keys, values = zip(*reversed(topten))
+plt.bar(range(len(keys)), values)
+plt.xticks(range(len(keys)), keys)
 
-x = list(range(len(cat)))
-widthlis = [0.8 for x in list(range(len(cat)))]
+if args.input_path[-1] == 'g':
+    plt.xlabel('Language')
+else:
+    plt.xlabel('Country')
+if args.percent:
+    plt.ylabel('Percent of Total')
+else:
+    plt.ylabel('Amount of Tweets')
 
-plt.rcdefaults()
-fig, ax = plt.subplots()
-plt.bar(range(len(cat)),val, align='center')
-plt.xlabel('Country`')
-plt.ylabel('Frequency')
-ax.set_title('Frequency of #coronavirus use by country in 2020')
-plt.xticks(range(len(cat)), cat)
-plt.tight_layout()
-covidfreqlang2020_png = 'covid_country2020.png'
-plt.savefig(covidfreqlang2020_png, dpi=150)
+if args.input_path[-1] == 'g':
+    plt.savefig(args.key[1:] + 'language.png')
+    print(args.key[1:] + 'language.png')
+else:
+    plt.savefig(args.key[1:] + 'country.png')
+    print(args.key[1:] + 'country.png')
