@@ -33,9 +33,9 @@ The graphs below showcase the usage of a hashtagh, the first is provided by coun
 
 ![use](covid_lang2020.png)
 
-![use](코로나바이러스_country.png)
+![use](speacialcountry.png)
 
-![use](코로나바이러스_language.png)
+![use](speciallanguage.png)
 
 
 
