@@ -33,7 +33,7 @@ The graphs below showcase the usage of a hashtagh, the first is provided by coun
 
 ![use](covid_lang2020.png)
 
-![use](speacialcountry.png)
+![use](specialcountry.png)
 
 ![use](speciallanguage.png)
 
@@ -42,4 +42,4 @@ The graphs below showcase the usage of a hashtagh, the first is provided by coun
 **Task 4 graphs:**
 The graph below shows a comparison between the hashtags sent on 2020 on Twitter.
 
-![use](hashtag_comparison_#corona_#sad_#healthy.png)
+![use](hash_comp.png)
